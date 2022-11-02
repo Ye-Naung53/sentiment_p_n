@@ -45,7 +45,7 @@ if predict_btt:
   prediction = loaded_model.predict(data)
   if prediction >0.75:
     st.text("This is Positive")
-  elif prediction <0.02:
+  elif prediction <0.20:
     st.text("This is Negative")
   else:
     st.text("This is Neutral")
