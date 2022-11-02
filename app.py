@@ -10,8 +10,8 @@ def tokenize(line):
     sentence = pds.tokenize(line,form="word")
     return sentence
 
-loaded_model = load_model('model_good.h5')
-vectorizer = pickle.load(open("vectorizer.pickle2", "rb"))
+loaded_model = load_model('model_1.h5')
+vectorizer = pickle.load(open("vectorizer_02.pickle", "rb"))
 
 stopwordslist = []
 slist = []
