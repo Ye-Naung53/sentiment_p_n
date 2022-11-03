@@ -10,8 +10,8 @@ def tokenize(line):
     sentence = pds.tokenize(line,form="word")
     return sentence
 
-loaded_model = load_model('model_1.h5')
-vectorizer = pickle.load(open("vectorizer_02.pickle", "rb"))
+loaded_model = load_model('model_new.h5')
+vectorizer = pickle.load(open("vectorizer_new.pickle", "rb"))
 
 stopwordslist = []
 slist = []
@@ -43,12 +43,18 @@ predict_btt = st.button("Predict")
 if predict_btt:
   data = vectorizer.transform([sentence]).toarray()
   prediction = loaded_model.predict(data)
-  if prediction >0.75:
-    st.text("This is Positive")
-  elif prediction <0.20:
-    st.text("This is Negative")
-  else:
-    st.text("This is Neutral")
+  if prediction>0.9900:
+    st.text("Positive")
+    print(prediction)
+  elif 0.0500<prediction<0.9900:
+    st.text("Natural")
+    print(prediction)
+  elif 0.0005<prediction<0.0500:
+    st.text("Negative")
+    print(prediction)
+  elif 0.0000<prediction<0.0005:
+    st.text("Strong Negative")
+    print(prediction)
   
   
 
